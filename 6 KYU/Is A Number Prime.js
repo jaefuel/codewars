@@ -2,28 +2,29 @@
 
 function isPrime(num) {
   
-  let n = Math.abs(num);
-
-  
-  
-  let prime = true;
-  
-  if (num < 1)
-  {
-    return false;
-  }
-  if (n == 0 || n == 1)
+  if (num <= 1)
   {
     return false;
   }
   
-  for (let i = 1; i <= n; i++)
+  if (num == 2)
   {
-    if(n % i == 0 && i != 1 && i != n)
+    return true;
+  }
+  
+  if (num % 2 == 0)
+  {
+    return false;
+  }
+  
+  for( let i = 3; i <= Math.sqrt(num); i+=2)
+  {
+    if (num % i == 0)
     {
-      prime = false;
+      return false;
     }
   }
   
-  return prime;
+  return true;
+  
 }
