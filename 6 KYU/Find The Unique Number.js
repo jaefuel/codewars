@@ -2,24 +2,11 @@
 
 function findUniq(arr) 
 {
+  arr.sort();
   
-  let u = -1;
 
-  arr.forEach((e,i) => { 
-    
-    let newArr = [...arr];
-    newArr.splice(i,1);
-    
-    
-    if (!newArr.includes(e))
-    {
-      console.log("Unique:" + e)
-      
-      u = e;
-    }
-  })
-  
-  console.log(arr)
-  return u;
+  let unique = arr[0] === arr[1] ? arr[arr.length-1] : arr[0];
+
+  return unique;
   
 }
