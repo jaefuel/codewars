@@ -1,9 +1,11 @@
 // You are given an array(list) strarr of strings and an integer k. Your task is to return the first longest string consisting of k consecutive strings taken in the array.
 
+
 function longestConsec(strarr, k) {
+
   let strings = [];
   
-  if (strarr.length == 0)
+  if (strarr.length == 0 || k > strarr.length || k <= 0)
   {
     return "";
   }
@@ -12,34 +14,32 @@ function longestConsec(strarr, k) {
   {
     let newString = [];
     
-    if (i < strarr.length - k + 1)
+    if (i <= strarr.length - k)
     {
       for (let a = i; a < i + k; a ++)
       {
         newString.push(strarr[a]);
       }
+      
+      strings.push(newString.join(""))
     }     
     
-    strings.push(newString.join(""))
+    
   }
   
+  
+  let longest = strings.reduce(
+    function (a, b) {
+      if (a.length > b.length)
+      {
+        return a;
+      }
+      else if (a.length == b.length)
+      {
+        return a;
+      }
+        return b;
+    }
+    );
 
-  
-  strings.sort((a,b) => {
-    if (a.length > b.length)
-    {
-      return -1;
-    }
-    else if (a.length < b.length)
-    {
-      return 1;
-    }
-    else 
-    {
-      return 0;
-    }
-  })
-  
-  return strings[0]
-  
 }
