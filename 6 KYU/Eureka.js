@@ -8,23 +8,18 @@ function sumDigPow(a, b) {
     {
       let temp = i.toString().split("").map(e => Number(e))
       
-      console.log(temp)
-      
       let eureka = 0;
       
       for (let i = 0; i < temp.length; i++)
       {
         eureka += temp[i]**(i+1)
       }
-      
-      console.log(eureka)  
+ 
       
       if (temp.join("") == eureka)
       {   
         answer.push(eureka)
       }
     }
-  
-  console.log(answer)
   return answer
 }
