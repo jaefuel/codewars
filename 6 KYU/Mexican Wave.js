@@ -8,11 +8,11 @@ function wave(str){
     
     for (let i = 0; i < word.length; i++)
     {
+      let temp = [...word]
       if(word[i] != " ")
       {
-        let temp = [...word]
         
-        console.log(temp)
+        
         
         temp[i] = word[i].toUpperCase();
         
@@ -22,7 +22,6 @@ function wave(str){
         
       }
       
-      console.log(arr)
     }
     
     return arr
