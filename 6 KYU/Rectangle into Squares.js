@@ -1,39 +1,33 @@
-// Given two arrays a and b write a function comp(a, b) (orcompSame(a, b)) that checks whether the two arrays have the "same" elements, with the same multiplicities (the multiplicity of a member is the number of times it appears). "Same" means, here, that the elements in b are the elements in a squared, regardless of the order.
+// Return a collection with the size of each of the squares.
 
-function comp(array1, array2){
-  console.log(array1)
-  console.log(array2)
+function sqInRect(lng, wdth)
+{
+  let arr = [];
   
-  console.log("\n")
-  
-  let found = true;
-  
-  if (array1 == null || array2 == null)
+  if (lng == wdth)
   {
-    return false;
-  }
+    return null;
+  }  
+  let length = lng;
+  let width = wdth;
+  let min = Math.min(length,width);
+  let size = length * width;
   
-  array1.forEach(e =>{
+  
+  while (min >= 1)
+  {
+    arr.push(min); 
+    console.log(size + " size")
+    console.log(min + " min")   
+    console.log(arr)
+    size -= min ** 2;
+    length = size/min;
+    width = min;
+    min = Math.min(length, width) 
+     
     
-    
-    if (!array2.includes(e * e))
-    {
-      console.log(e + "*" + e + " = " + e * e + " Not found ")
-      found = false;
-    }
-    else
-    {
-      console.log(e + "*" + e + " = " + e * e + " found at " + array2.indexOf(e*e))
-      delete array2[array2.indexOf(e*e)]
-    }
-  })
+  } 
   
-  array2.forEach(e =>{
-    if (!array1.includes(Math.sqrt(e)))
-    {
-      found = false;
-    }
-  })
-  
-  return found;
+  console.log(arr)
+  return arr 
 }
